@@ -13,11 +13,11 @@ export default class NotesController {
 
   public async store({request, response}: HttpContextContract) {
     try {
-        const {title, description} = request.body()
-        const responseNewNote = await Note.create({title, description})
+        const {title, description, label_color} = request.body()
+        const responseNewNote = await Note.create({title, description, label_color})
         return response.status(200).json({code: 200, status: "success creating a new note", data: responseNewNote});
     } catch (error) {
-        return response.status(500).json({code: 200, status: "failed to create a note", message: error.message});
+        return response.status(500).json({code: 500, status: "failed to create a note", message: error.message});
     }
   }
 
@@ -25,8 +25,8 @@ export default class NotesController {
 
   public async update({request, response, params:{id}}: HttpContextContract) {
     try {
-        const {title, description} = request.body()
-        await Note.query().where({id}).update({title, description})
+        const {title, description, label_color} = request.body()
+        await Note.query().where({id}).update({title, description, label_color})
         const responseUpdateNote = await Note.find(id)
         return response.status(200).json({code: 200, status: "success updating a note", data: responseUpdateNote?.toJSON()});
     } catch (error) {

@@ -16,4 +16,7 @@ export default class Note extends BaseModel {
 
   @column()
   public description: string
+
+  @column()
+  public label_color: string
 }

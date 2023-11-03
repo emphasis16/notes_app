@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_notes_app/custom_func/func.dart';
 import 'package:flutter_notes_app/data/datasources/notes_remote_datasources.dart';
 import 'package:flutter_notes_app/pages/new_note_page.dart';
 import 'package:flutter_notes_app/widget/note_container.dart';
@@ -30,22 +29,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       isLoading = false;
     });
-  }
-
-  // Daftar keenam warna yang telah ditentukan
-  List<Color> predefinedColors = [
-    const Color(0xffFD99FF),
-    const Color(0xffFF9E9E),
-    const Color(0xff91F48F),
-    const Color(0xffFFF599),
-    const Color(0xff9EFFFF),
-    const Color(0xffB69CFF),
-  ];
-
-// Fungsi untuk memilih warna acak dari daftar warna yang telah ditentukan
-  Color randomPredefinedColor() {
-    Random random = Random();
-    return predefinedColors[random.nextInt(predefinedColors.length)];
   }
 
   @override
@@ -113,7 +96,9 @@ class _HomePageState extends State<HomePage> {
                                           .toString();
                                       var title = notes[index].title;
                                       var noteData = notes[index];
-                                      Color noteColor = randomPredefinedColor();
+                                      var noteColor =
+                                          CustomFunc.hexStringToColor(
+                                              notes[index].labelColor);
                                       return Column(
                                         children: [
                                           NoteContainer(

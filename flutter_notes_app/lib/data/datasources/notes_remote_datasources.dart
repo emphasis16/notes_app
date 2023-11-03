@@ -7,7 +7,7 @@ import 'package:flutter_notes_app/data/models/response/notes_reponse_model.dart'
 import 'package:http/http.dart' as http;
 
 class NotesRemoteDatasource {
-  String baseUrl = 'http://172.20.2.80:3333/notes';
+  String baseUrl = 'http://192.168.0.103:3333/notes';
 
   // get all notes
   Future<NotesResponseModel> getNotes() async {

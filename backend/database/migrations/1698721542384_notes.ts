@@ -8,6 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('title')
       table.string('description')
+      table.string('label_color')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
