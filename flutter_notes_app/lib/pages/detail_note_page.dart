@@ -60,8 +60,8 @@ class _DetailNotePageState extends State<DetailNotePage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          if (initialTitle == titleController.text ||
-                              initialDesc == descController.text ||
+                          if (initialTitle == titleController.text &&
+                              initialDesc == descController.text &&
                               isSaved == false) {
                             Navigator.pop(context);
                           } else {
