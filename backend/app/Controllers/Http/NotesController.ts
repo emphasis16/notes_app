@@ -15,7 +15,7 @@ export default class NotesController {
     try {
         const {title, description, label_color} = request.body()
         const responseNewNote = await Note.create({title, description, label_color})
-        return response.status(200).json({code: 200, status: "success creating a new note", data: responseNewNote});
+        return response.status(201).json({code: 200, status: "success creating a new note", data: responseNewNote});
     } catch (error) {
         return response.status(500).json({code: 500, status: "failed to create a note", message: error.message});
     }
